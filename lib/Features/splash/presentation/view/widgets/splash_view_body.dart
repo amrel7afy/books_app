@@ -1,7 +1,13 @@
+import 'package:books_app/Features/home/presentation/view/home_view.dart';
 import 'package:books_app/Features/splash/presentation/view/widgets/sliding_animated_text.dart';
+import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/my_assets.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+
+import '../../../../../core/utils/constants/methods.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -18,11 +24,14 @@ with SingleTickerProviderStateMixin
 
   @override
   void initState() {
-    animationController =AnimationController(vsync: this,duration: const Duration(milliseconds: 1300),);
-    slidingAnimation =Tween<Offset>(begin: const Offset(0,5),end: Offset.zero).animate(animationController);
-    animationController.forward();
+    initAnimation();
+    navigateWithAnimation(const HomeView());
     super.initState();
   }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +45,11 @@ with SingleTickerProviderStateMixin
       ],
     );
   }
+ void initAnimation() {
+   animationController =AnimationController(vsync: this,duration: kSlidingDurationVal,);
+   slidingAnimation =Tween<Offset>(begin: const Offset(0,5),end: Offset.zero).animate(animationController);
+   animationController.forward();
+ }
 }
 
 

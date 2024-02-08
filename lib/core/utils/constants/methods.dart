@@ -1,5 +1,8 @@
 
 import'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'constants.dart';
 String removeSubString(String string, String subString) {
   String escapedSubstring = RegExp.escape(subString);
   RegExp pattern = RegExp(escapedSubstring);
@@ -15,4 +18,10 @@ double getHeight(context) {
 }
 double getWidth(context) {
   return MediaQuery.of(context).size.width;
+}
+
+void navigateWithAnimation(widget) {
+  Future.delayed( kNavigationDurationVal).then((value) {
+    Get.to( widget,transition: Transition.cupertinoDialog,duration: kTransitionDurationVal);
+  });
 }
