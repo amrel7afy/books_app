@@ -1,4 +1,5 @@
 import 'package:books_app/core/utils/constants/my_assets.dart';
+import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatelessWidget {
@@ -10,7 +11,8 @@ class SplashViewBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(MyAssets.logo)
+        Image.asset(MyAssets.logo),
+        const Text('Read Free Books',textAlign: TextAlign.center,style: MyTextStyles.smallBody,),
       ],
     );
   }

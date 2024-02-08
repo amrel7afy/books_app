@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyColors{
-  static const  kPrimaryColor=Color(0xff100B20);
+  static const  kBackGroundColor=Color(0xff100B20);
+  static const  kPrimaryColor=Colors.white;
 
 
   static const int primaryValue = 0xFF6366B3;

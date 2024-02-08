@@ -23,7 +23,7 @@ import 'my_colors.dart';
    decoration: InputDecoration(
      contentPadding: const EdgeInsets.symmetric(horizontal: 18,),
 
-     prefixIconColor: MyColors.kPrimaryColor,
+     prefixIconColor: MyColors.kBackGroundColor,
        hintStyle: const TextStyle(
          fontSize: 16,
 
