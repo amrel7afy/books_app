@@ -11,36 +11,28 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody>
-    with SingleTickerProviderStateMixin {
-  //--------------------------------
-
-  late AnimationController animationController;
-  late Animation<Offset> slidingAnimation;
+with SingleTickerProviderStateMixin
+{
+ late AnimationController animationController;
+ late Animation<Offset> slidingAnimation;
 
   @override
   void initState() {
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 1300));
-    slidingAnimation = Tween<Offset>(
-      begin: const Offset(0, 5),
-      end: const Offset(0, 0),
-    ).animate(animationController);
+    animationController =AnimationController(vsync: this,duration: const Duration(milliseconds: 1300),);
+    slidingAnimation =Tween<Offset>(begin: const Offset(0,5),end: Offset.zero).animate(animationController);
     animationController.forward();
     super.initState();
   }
-@override
-  void dispose() {
-  animationController.dispose();
-    super.dispose();
-  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return  Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(MyAssets.logo),
         SlidingAnimatedText(slidingAnimation: slidingAnimation),
+
       ],
     );
   }
