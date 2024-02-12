@@ -13,7 +13,7 @@ class CategoryListView extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context,index){
-          return const CategoryCard();
+          return const FeaturedHorizontalListViewCard();
         }, itemCount: 10,),
     );
   }

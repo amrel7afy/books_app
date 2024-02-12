@@ -3,17 +3,12 @@ import 'package:flutter/material.dart';
 import 'my_colors.dart';
 
 abstract class MyTextStyles {
-  static const headLine1 = TextStyle();
-  static const headLine2 = TextStyle();
-  static const headLine3 = TextStyle();
-  static const headLine4 = TextStyle(
-    color: MyColors.kPrimaryColor,
-    fontSize: 18
+  static const textStyle18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
   );
-  static const smallBody = TextStyle(
-    color: MyColors.kPrimaryColor,
-    fontWeight: FontWeight.w500
+  static const textStyle15 = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w600,
   );
-  static const mediumBody = TextStyle();
-  static const largeBody = TextStyle();
 }

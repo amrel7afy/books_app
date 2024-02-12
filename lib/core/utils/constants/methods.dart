@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,3 +27,5 @@ void navigateWithAnimation(widget) {
     Get.to( widget,transition: Transition.cupertinoDialog,duration: kTransitionDurationVal);
   });
 }
+
+
