@@ -1,3 +1,4 @@
+import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:flutter/material.dart';
 
 import 'featured_horzonal_listView.dart';
@@ -9,9 +10,13 @@ class CustomHomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  const Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         CustomAppBar(),
-        CategoryListView()
+        CategoryListView(),
+        SizedBox(height: 20,),
+        Text('Best Seller',style: MyTextStyles.headLine4,
+        )
       ],
     );
   }
