@@ -1,6 +1,6 @@
 import 'package:books_app/Features/home/presentation/view/widgets/best_seller_card.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
-import 'package:books_app/core/utils/constants/methods.dart';
+
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:flutter/material.dart';
 
