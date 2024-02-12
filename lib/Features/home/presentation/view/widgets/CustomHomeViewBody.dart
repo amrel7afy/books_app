@@ -14,14 +14,14 @@ class CustomHomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return   const Padding(
-      padding: EdgeInsets.only(left: leftScreenPadding),
+      padding: EdgeInsets.only(left: kLeftScreenPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CustomAppBar(),
           CategoryListView(),
           VirticalSpacer(30),
-          Text('Best Seller',style: MyTextStyles.textStyle18,),
+          Text('Best Seller',style: MyTextStyles.semiBoldTextStyle18,),
           VirticalSpacer(20),
           BestSellerCard()
         ],
