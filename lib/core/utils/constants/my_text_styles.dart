@@ -36,6 +36,7 @@ abstract class MyTextStyles {
   static const mediumTextStyle16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,
+
   );
   static const semiBoldTextStyle16 = TextStyle(
     fontSize: 16,
