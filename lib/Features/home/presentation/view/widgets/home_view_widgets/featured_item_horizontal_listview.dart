@@ -1,7 +1,8 @@
 
+import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/constants/constants.dart';
+
 
 
 class FeaturedHorizontalListViewCard extends StatelessWidget {

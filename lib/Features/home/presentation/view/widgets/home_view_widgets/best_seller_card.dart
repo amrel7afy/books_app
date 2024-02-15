@@ -4,7 +4,7 @@ import 'package:books_app/core/utils/constants/vertical&horizontal_space.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../../core/utils/constants/constants.dart';
+import '../../../../../../core/utils/constants/constants.dart';
 
 class BestSellerCard extends StatelessWidget {
   const BestSellerCard({super.key});

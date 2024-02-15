@@ -2,7 +2,7 @@ import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../../core/utils/constants/my_assets.dart';
+import '../../../../../../core/utils/constants/my_assets.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

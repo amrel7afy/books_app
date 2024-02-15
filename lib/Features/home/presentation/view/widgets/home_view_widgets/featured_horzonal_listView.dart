@@ -1,7 +1,8 @@
+import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/featured_item_horizontal_listview.dart';
 import 'package:books_app/core/utils/constants/methods.dart';
 import 'package:flutter/material.dart';
 
-import 'featured_item_horizontal_listview.dart';
+
 
 class CategoryListView extends StatelessWidget {
   const CategoryListView({super.key});
