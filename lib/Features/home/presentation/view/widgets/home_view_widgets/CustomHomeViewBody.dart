@@ -1,4 +1,3 @@
-import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/best_seller_card.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/best_seller_list_view.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/featured_horzonal_listView.dart';
 import 'package:books_app/core/utils/constants/constants.dart';

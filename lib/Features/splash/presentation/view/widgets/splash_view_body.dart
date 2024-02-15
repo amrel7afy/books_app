@@ -2,10 +2,8 @@ import 'package:books_app/Features/home/presentation/view/home_view.dart';
 import 'package:books_app/Features/splash/presentation/view/widgets/sliding_animated_text.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/my_assets.dart';
-import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+
 
 import '../../../../../core/utils/constants/methods.dart';
 
@@ -25,7 +23,7 @@ with SingleTickerProviderStateMixin
   @override
   void initState() {
     initAnimation();
-    navigateWithAnimation(const HomeView());
+    navigateTo(const HomeView(),context);
     super.initState();
   }
 

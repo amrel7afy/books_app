@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:books_app/core/utils/AppRouter.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 
-import 'Features/splash/presentation/view/splash_view.dart';
+
 import 'core/utils/constants/theme.dart';
 
 void main(){
@@ -14,9 +13,9 @@ class BooklyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-  return  GetMaterialApp(
+  return  MaterialApp(
     theme: themeData,
-    home: const SplashView(),
+    onGenerateRoute: AppRouter().generateRoute,
   );
   }
 }

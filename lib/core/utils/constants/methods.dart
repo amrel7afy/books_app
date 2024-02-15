@@ -1,9 +1,5 @@
-
-
-
+import 'package:books_app/core/utils/AppRouter.dart';
 import'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import 'constants.dart';
 String removeSubString(String string, String subString) {
   String escapedSubstring = RegExp.escape(subString);
@@ -22,9 +18,9 @@ double getWidth(context) {
   return MediaQuery.of(context).size.width;
 }
 
-void navigateWithAnimation(widget) {
+void navigateTo(widget,context) {
   Future.delayed( kNavigationDurationVal).then((value) {
-    Get.to( widget,transition: Transition.cupertinoDialog,duration: kTransitionDurationVal);
+    Navigator.pushNamed(context, AppRouter.homeView);
   });
 }
 
