@@ -1,3 +1,4 @@
+import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/book_image.dart';
 import 'package:books_app/core/utils/AppRouter.dart';
 import 'package:books_app/core/utils/constants/methods.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
@@ -20,7 +21,7 @@ class BestSellerCard extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            buildTheImageWidget()
+            const BookImage()
             ,
             const HorizontalSpacer(30),
             Expanded(
@@ -37,7 +38,7 @@ class BestSellerCard extends StatelessWidget {
                         style: MyTextStyles.mediumTextStyle20
                             .copyWith(fontFamily: kGTSectraFine),
                       )),
-                  const VirticalSpacer(3),
+                  const VerticalSpacer(3),
                   const Text('Robert Sedgier',style: MyTextStyles.mediumTextStyle14,),
                   const Row(
                     children: [
@@ -55,18 +56,7 @@ class BestSellerCard extends StatelessWidget {
     );
   }
 
-  AspectRatio buildTheImageWidget() {
-    return AspectRatio(
-          aspectRatio: 3.5 / 6,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(cardBorderRadius),
-            child: Image.network(
-              'https://th.bing.com/th/id/OIP.Wr1eKs2VHyEN_R7FtGI_eAHaE8?rs=1&pid=ImgDetMain',
-              fit: BoxFit.fill,
-            ),
-          ),
-        );
-  }
+
 }
 class BookRating extends StatelessWidget {
   const BookRating({super.key});

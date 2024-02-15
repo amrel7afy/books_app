@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class VirticalSpacer extends StatelessWidget {
-  const VirticalSpacer(this.verticalSpace,{super.key});
+class VerticalSpacer extends StatelessWidget {
+  const VerticalSpacer(this.verticalSpace,{super.key});
   final verticalSpace;
   @override
   Widget build(BuildContext context) {
