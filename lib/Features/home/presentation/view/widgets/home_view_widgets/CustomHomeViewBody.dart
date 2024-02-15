@@ -15,7 +15,7 @@ class CustomHomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  const Padding(
-      padding: EdgeInsets.only(left: kLeftScreenPadding),
+      padding: EdgeInsets.only(left: kLeftHomeViewPadding),
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

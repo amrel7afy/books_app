@@ -15,7 +15,7 @@ class BestSellerListView extends StatelessWidget {
               (context, index) {
             return const Padding(
               padding:
-              EdgeInsets.only(right: kRightScreenPadding, bottom: 10, top: 10),
+              EdgeInsets.only(right: kRightHomeViewPadding, bottom: 10, top: 10),
               child: BestSellerCard(),
             );
           }

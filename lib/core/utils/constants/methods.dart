@@ -1,4 +1,3 @@
-import 'package:books_app/core/utils/AppRouter.dart';
 import'package:flutter/material.dart';
 import 'constants.dart';
 String removeSubString(String string, String subString) {
@@ -18,10 +17,14 @@ double getWidth(context) {
   return MediaQuery.of(context).size.width;
 }
 
-void navigateTo(widget,context) {
+void navigateToWithDelayed(context,widgetId) {
   Future.delayed( kNavigationDurationVal).then((value) {
-    Navigator.pushNamed(context, AppRouter.homeView);
+    Navigator.pushNamed(context, widgetId);
   });
+}
+void navigateTo(context,widgetId) {
+    Navigator.pushNamed(context, widgetId);
+
 }
 
 

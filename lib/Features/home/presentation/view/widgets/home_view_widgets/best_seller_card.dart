@@ -1,3 +1,4 @@
+import 'package:books_app/core/utils/AppRouter.dart';
 import 'package:books_app/core/utils/constants/methods.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:books_app/core/utils/constants/vertical&horizontal_space.dart';
@@ -11,49 +12,60 @@ class BestSellerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 3.5 / 6,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(cardBorderRadius),
-              child: Image.network(
-                'https://th.bing.com/th/id/OIP.Wr1eKs2VHyEN_R7FtGI_eAHaE8?rs=1&pid=ImgDetMain',
-                fit: BoxFit.fill,
+    return GestureDetector(
+      onTap: (){
+        navigateTo( context,AppRouter.bookDetailsView );
+      },
+      child: SizedBox(
+        height: 120,
+        child: Row(
+          children: [
+            buildTheImageWidget()
+            ,
+            const HorizontalSpacer(30),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //حاطط التيكست جوا sized box عشان ينزل للسطر اللي بعده
+                  SizedBox(
+                      width: getWidth(context) * 0.7,
+                      child: Text(
+                        'Harry Potter and the Goblet Fire Goblet Fire',
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: MyTextStyles.mediumTextStyle20
+                            .copyWith(fontFamily: kGTSectraFine),
+                      )),
+                  const VirticalSpacer(3),
+                  const Text('Robert Sedgier',style: MyTextStyles.mediumTextStyle14,),
+                  const Row(
+                    children: [
+                      Text('19.99 LE',style: MyTextStyles.boldTextStyle18,),
+                      Spacer(),
+                     BookRating()
+                    ],
+                  )
+                ],
               ),
-            ),
-          ),
-          const HorizontalSpacer(30),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                    width: getWidth(context) * 0.7,
-                    child: Text(
-                      'Harry Potter and the Goblet Fire Goblet Fire',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      style: MyTextStyles.mediumTextStyle20
-                          .copyWith(fontFamily: kGTSectraFine),
-                    )),
-                const VirticalSpacer(3),
-                const Text('Robert Sedgier',style: MyTextStyles.mediumTextStyle14,),
-                const Row(
-                  children: [
-                    Text('19.99 LE',style: MyTextStyles.boldTextStyle18,),
-                    Spacer(),
-                   BookRating()
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
+  }
+
+  AspectRatio buildTheImageWidget() {
+    return AspectRatio(
+          aspectRatio: 3.5 / 6,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(cardBorderRadius),
+            child: Image.network(
+              'https://th.bing.com/th/id/OIP.Wr1eKs2VHyEN_R7FtGI_eAHaE8?rs=1&pid=ImgDetMain',
+              fit: BoxFit.fill,
+            ),
+          ),
+        );
   }
 }
 class BookRating extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:books_app/Features/home/presentation/view/home_view.dart';
 import 'package:books_app/Features/splash/presentation/view/widgets/sliding_animated_text.dart';
+import 'package:books_app/core/utils/AppRouter.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/my_assets.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +23,7 @@ with SingleTickerProviderStateMixin
   @override
   void initState() {
     initAnimation();
-    navigateTo(const HomeView(),context);
+    navigateToWithDelayed(context,AppRouter.homeView);
     super.initState();
   }
 
