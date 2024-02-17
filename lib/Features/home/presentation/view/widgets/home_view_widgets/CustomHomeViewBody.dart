@@ -23,7 +23,7 @@ class CustomHomeViewBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 CustomAppBar(),
-                CategoryListView(),
+                FeaturedListView(),
                 VerticalSpacer(30),
                 Text(
                   'Best Seller',
