@@ -1,7 +1,8 @@
 
+import 'package:books_app/core/utils/constants/my_colors.dart';
 import 'package:flutter/material.dart';
 
-import 'my_colors.dart';
+
 
  Widget defaultFormField({required String hint,
   required Icon prefixIcon,
@@ -43,22 +44,21 @@ import 'my_colors.dart';
  );
 
 class DefaultFormField extends StatelessWidget {
-
-   String? hint;
-  late IconData prefixIcon;
-  late TextInputType textInputType;
-  String? Function(String?)? validate;
-  bool obscureText=false;
-  IconData? suffixIcon;
-  VoidCallback? suffixPressed;
-    Function(String?)? onSubmitted;
-  Widget?label;
-   DefaultFormField({
+   final String? hint;
+   final Icon? prefixIcon;
+   final TextInputType textInputType;
+   final String? Function(String?)? validate;
+   final bool? obscureText;
+   final Icon? suffixIcon;
+   final VoidCallback? suffixPressed;
+   final Function(String?)? onSubmitted;
+   final Widget?label;
+   const DefaultFormField({
     super.key,
      this.hint,
      this.label,
      this.suffixPressed,
-    required this.prefixIcon,this.onSubmitted,required this.textInputType,this.validate,this.suffixIcon,required this.obscureText,
+     this.prefixIcon,this.onSubmitted,required this.textInputType,this.validate,this.suffixIcon, this.obscureText,
   });
 
   @override
@@ -67,21 +67,14 @@ class DefaultFormField extends StatelessWidget {
       onFieldSubmitted: onSubmitted,
       keyboardType: textInputType,
       validator: validate,
-      obscureText: obscureText,
+      obscureText: obscureText??false,
       decoration: InputDecoration(
         label: label,
           hintText: hint,
-          suffixIcon: IconButton(
-            onPressed: suffixPressed,
-            icon: Icon(
-                suffixIcon
-            ),
-          ),
-          prefixIcon: Icon(
-            prefixIcon,
-            // color: primaryColor,
-          ),
+          suffixIcon: suffixIcon,
+          prefixIcon: prefixIcon,
           border: const OutlineInputBorder(),
+
           ),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
-import 'package:books_app/core/utils/constants/vertical_and_horizontal_space.dart';
+import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 import 'package:flutter/material.dart';
 
 import 'similar_list_view.dart';

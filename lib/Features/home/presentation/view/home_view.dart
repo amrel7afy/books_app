@@ -1,4 +1,4 @@
-import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/CustomHomeViewBody.dart';
+import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,7 +7,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  const Scaffold(
-      body: SafeArea(child: CustomHomeViewBody()),
+      body: SafeArea(child: HomeViewBody()),
     );
   }
 }

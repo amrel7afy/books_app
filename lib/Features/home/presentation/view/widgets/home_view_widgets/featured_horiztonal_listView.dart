@@ -10,7 +10,7 @@ class FeaturedListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  SizedBox(
-      height: getHeight(context)*0.24,
+      height: getHeight(context)*0.34,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context,index){

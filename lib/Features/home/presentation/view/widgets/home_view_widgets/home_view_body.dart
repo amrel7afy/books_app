@@ -5,12 +5,12 @@ import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/constants/vertical_and_horizontal_space.dart';
+import '../../../../../../core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 
-import 'custom_app_bar.dart';
+import 'home_view_app_bar.dart';
 
-class CustomHomeViewBody extends StatelessWidget {
-  const CustomHomeViewBody({super.key});
+class HomeViewBody extends StatelessWidget {
+  const HomeViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,8 @@ class CustomHomeViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                CustomAppBar(),
+                HomeViewAppBar(),
+                VerticalSpacer(10),
                 FeaturedListView(),
                 VerticalSpacer(30),
                 Text(

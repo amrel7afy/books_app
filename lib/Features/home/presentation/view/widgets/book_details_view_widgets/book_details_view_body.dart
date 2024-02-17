@@ -1,6 +1,6 @@
 import 'package:books_app/Features/home/presentation/view/widgets/book_details_view_widgets/book_details_app_bar.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/book_details_view_widgets/book_details_section.dart';
-import 'package:books_app/core/utils/constants/vertical_and_horizontal_space.dart';
+import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 import 'package:flutter/material.dart';
 
 import 'similar_books_section.dart';

@@ -1,11 +1,13 @@
+import 'package:books_app/core/utils/AppRouter.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
+import 'package:books_app/core/utils/constants/my_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../../../core/utils/constants/my_assets.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
+
+class HomeViewAppBar extends StatelessWidget {
+  const HomeViewAppBar({
     super.key,
   });
 
@@ -16,7 +18,10 @@ class CustomAppBar extends StatelessWidget {
       child: Row(children: [
         Image.asset(MyAssets.logo,width: 100,height: 50,),
         const Spacer(),
-        IconButton(icon:const Icon(FontAwesomeIcons.magnifyingGlass), onPressed: () {  } ,)
+        IconButton(icon:const Icon(FontAwesomeIcons.magnifyingGlass,size: 20,), onPressed: () {
+
+          Navigator.pushNamed(context, AppRouter.searchView);
+        } ,)
 
       ],),
     );
