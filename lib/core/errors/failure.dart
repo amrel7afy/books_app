@@ -9,28 +9,22 @@ abstract class Failure {
 class SeverFailure extends Failure {
   SeverFailure(super.errorMessage);
 
-  factory SeverFailure.fromDioError(DioError dioError) {
-    switch (dioError.type) {
-      case DioErrorType.connectionTimeout:
+  factory SeverFailure.fromDioError(DioException dioException) {
+    switch (dioException.type) {
+      case DioException.connectionTimeout:
         return SeverFailure('Connection Timeout, Please try again.');
-      case DioErrorType.sendTimeout:
+      case DioException.sendTimeout:
         return SeverFailure('Send Timeout, Please try again.');
-      case DioErrorType.receiveTimeout:
+      case DioException.receiveTimeout:
         return SeverFailure('Receive Timeout, Please try again.');
-      case DioErrorType.badCertificate:
-        return SeverFailure('Bad Certificate Timeout, Please try again.');
-      case DioErrorType.badResponse:
+
+      case DioException.badResponse:
         return SeverFailure.fromResponse(
-            dioError.response!.statusCode, dioError.response!.data);
-      case DioErrorType.cancel:
-        return SeverFailure('Request was canceled');
-      case DioErrorType.connectionError:
+            dioException.response!.statusCode, dioException.response!.data);
+
+      case DioException.connectionError:
         return SeverFailure('Connection Error');
-      case DioErrorType.unknown:
-        if (dioError.message!.contains('SocketException')) {
-          return SeverFailure('No Internet Connection');
-        }
-        return SeverFailure('Unexpected Error, Please try later!');
+
       default:
         return SeverFailure('Oops, There was an error, please try later.');
     }
