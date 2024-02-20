@@ -41,11 +41,14 @@ class NewestCard extends StatelessWidget {
                       )),
                   const VerticalSpacer(3),
                    Text(book.volumeInfo!.authors![0],style: MyTextStyles.mediumTextStyle14,),
-                   const Row(
+                    Row(
                     children: [
-                      Text('Free',style: MyTextStyles.boldTextStyle18,),
-                      Spacer(),
-                     BookRating()
+                      const Text('Free',style: MyTextStyles.boldTextStyle18,),
+                      const Spacer(),
+                     BookRating(
+                        rating: book.volumeInfo?.averageRating ?? 0,
+                       count: book.volumeInfo?.ratingsCount??0,
+                     )
                     ],
                   )
                 ],

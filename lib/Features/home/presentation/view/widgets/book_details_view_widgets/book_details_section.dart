@@ -38,6 +38,8 @@ class BookDetailsSection extends StatelessWidget {
           ),
           const VerticalSpacer(20),
           const BookRating(
+            count: 3884,
+            rating: 4,
             mainAxisAlignment: MainAxisAlignment.center,
           ),
           const VerticalSpacer(20),

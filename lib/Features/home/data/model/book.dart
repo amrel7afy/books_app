@@ -37,21 +37,5 @@ class Book {
         : null;
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['kind'] = kind;
-    data['id'] = id;
-    data['etag'] = etag;
-    data['selfLink'] = selfLink;
-    if (volumeInfo != null) {
-      data['volumeInfo'] = volumeInfo!.toJson();
-    }
-    if (saleInfo != null) {
-      data['saleInfo'] = saleInfo!.toJson();
-    }
-    if (accessInfo != null) {
-      data['accessInfo'] = accessInfo!.toJson();
-    }
-    return data;
-  }
+
 }

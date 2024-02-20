@@ -28,6 +28,7 @@ class NewestBooksListView extends StatelessWidget {
 
   ListView buildSuccessBody(FetchNewestBooksSuccess state) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: state.newestBooks.length,
           itemBuilder: (context, index) {
             return Padding(

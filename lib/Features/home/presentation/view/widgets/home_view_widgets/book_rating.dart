@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key, this.mainAxisAlignment=MainAxisAlignment.start});
+  final double rating;
+  final int count;
+  const BookRating({super.key, this.mainAxisAlignment=MainAxisAlignment.start, required this.rating, required this.count});
   final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,9 @@ class BookRating extends StatelessWidget {
       children: [
         const    Icon(FontAwesomeIcons.solidStar,color: Colors.amberAccent,size: 20,),
         const   HorizontalSpacer(3),
-        const    Text('4.8',style: MyTextStyles.boldTextStyle16,),
+            Text(rating.toString(),style: MyTextStyles.boldTextStyle16,),
         const   HorizontalSpacer(3),
-        Text('(3850)',style: MyTextStyles.mediumTextStyle14.copyWith(color: Colors.grey))
+        Text('(${count.toString()})',style: MyTextStyles.mediumTextStyle14.copyWith(color: Colors.grey))
       ],
     );
   }
