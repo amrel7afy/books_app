@@ -1,7 +1,9 @@
 
 
 import 'package:books_app/core/utils/constants/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -19,9 +21,10 @@ class BookImage extends StatelessWidget {
         aspectRatio: 3.5/6,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(cardBorderRadius),
-          child: Image.network(
-            imageUrl,
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
             fit: BoxFit.fill,
+            errorWidget: (context,url,error)=>const Icon(FontAwesomeIcons.circleExclamation),
           ),
         ),
       ),

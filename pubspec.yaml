@@ -41,6 +41,7 @@ dependencies:
   dio:
   flutter_bloc:
   get_it:
+  cached_network_image:
 
   bloc: any
 dev_dependencies:
