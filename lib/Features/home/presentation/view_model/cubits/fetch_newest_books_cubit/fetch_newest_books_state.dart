@@ -1,6 +1,7 @@
 
 
-import 'package:books_app/Features/home/data/model/Book.dart';
+
+import 'package:books_app/Features/home/data/model/book.dart';
 
 abstract class FetchNewestBooksState {}
 
@@ -8,9 +9,9 @@ class FetchNewestBooksInitial extends FetchNewestBooksState {}
 class FetchNewestBooksLoading extends FetchNewestBooksState {}
 
 class FetchNewestBooksSuccess extends FetchNewestBooksState {
-  final List<Book> featuredBooks;
+  final List<Book> newestBooks;
 
-  FetchNewestBooksSuccess(this.featuredBooks);
+  FetchNewestBooksSuccess(this.newestBooks);
 }
 
 class FetchNewestBooksFailure extends FetchNewestBooksState {

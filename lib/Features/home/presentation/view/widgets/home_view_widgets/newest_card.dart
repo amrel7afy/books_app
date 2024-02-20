@@ -4,12 +4,14 @@ import 'package:books_app/core/utils/constants/methods.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../../core/utils/constants/constants.dart';
+import '../../../../data/model/book.dart';
+import 'book_rating.dart';
 
-class BestSellerCard extends StatelessWidget {
-  const BestSellerCard({super.key});
+class NewestCard extends StatelessWidget {
+  final Book book;
+  const NewestCard({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,7 @@ class BestSellerCard extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            const BookImage()
-            ,
+            BookImage(imageUrl: book.volumeInfo!.imageLinks!.thumbnail!)            ,
             const HorizontalSpacer(30),
             Expanded(
               child: Column(
@@ -32,17 +33,17 @@ class BestSellerCard extends StatelessWidget {
                   SizedBox(
                       width: getWidth(context) * 0.7,
                       child: Text(
-                        'Harry Potter and the Goblet Fire Goblet Fire',
+                        book.volumeInfo!.title!,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                         style: MyTextStyles.mediumTextStyle20
                             .copyWith(fontFamily: kGTSectraFine),
                       )),
                   const VerticalSpacer(3),
-                  const Text('Robert Sedgier',style: MyTextStyles.mediumTextStyle14,),
-                  const Row(
+                   Text(book.volumeInfo!.authors![0],style: MyTextStyles.mediumTextStyle14,),
+                   const Row(
                     children: [
-                      Text('19.99 LE',style: MyTextStyles.boldTextStyle18,),
+                      Text('Free',style: MyTextStyles.boldTextStyle18,),
                       Spacer(),
                      BookRating()
                     ],
@@ -58,23 +59,7 @@ class BestSellerCard extends StatelessWidget {
 
 
 }
-class BookRating extends StatelessWidget {
-  const BookRating({super.key, this.mainAxisAlignment=MainAxisAlignment.start});
-  final MainAxisAlignment mainAxisAlignment;
-  @override
-  Widget build(BuildContext context) {
-    return  Row(
-      mainAxisAlignment: mainAxisAlignment,
-      children: [
-        const    Icon(FontAwesomeIcons.solidStar,color: Colors.amberAccent,size: 20,),
-        const   HorizontalSpacer(3),
-        const    Text('4.8',style: MyTextStyles.boldTextStyle16,),
-        const   HorizontalSpacer(3),
-        Text('(3850)',style: MyTextStyles.mediumTextStyle14.copyWith(color: Colors.grey))
-      ],
-    );
-  }
-}
+
 
 
 

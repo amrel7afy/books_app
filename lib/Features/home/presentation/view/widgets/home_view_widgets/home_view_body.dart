@@ -1,8 +1,9 @@
-import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/best_seller_list_view.dart';
+import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/newest_list_view.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/featured_horiztonal_listView.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
 
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/constants/widgets/vertical_and_horizontal_space.dart';
@@ -27,14 +28,14 @@ class HomeViewBody extends StatelessWidget {
                 FeaturedListView(),
                 VerticalSpacer(30),
                 Text(
-                  'Best Seller',
+                  'Newest Books',
                   style: MyTextStyles.semiBoldTextStyle18,
                 ),
                 VerticalSpacer(20),
               ],
             ),
           ),
-          BestSellerListView(),
+          SliverFillRemaining(child: NewestBooksListView()),
         ],
       ),
     );

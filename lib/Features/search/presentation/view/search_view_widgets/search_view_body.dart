@@ -1,8 +1,8 @@
-import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/best_seller_card.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:books_app/core/utils/constants/widgets/search_field.dart';
 import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_space.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -50,10 +50,10 @@ class SearchResultsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(childCount: 5, (context, index) {
-        return const Padding(
-          padding: EdgeInsets.only(
+        return  Padding(
+          padding: const EdgeInsets.only(
               right: kRightHomeViewPadding, bottom: 10, top: 10),
-          child: BestSellerCard(),
+          child: Container(),
         );
       }),
     );

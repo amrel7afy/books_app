@@ -1,33 +1,18 @@
-import 'dart:convert';
-
-/// containsEpubBubbles : false
-/// containsImageBubbles : false
-
-PanelizationSummary panelizationSummaryFromJson(String str) => PanelizationSummary.fromJson(json.decode(str));
-String panelizationSummaryToJson(PanelizationSummary data) => json.encode(data.toJson());
 class PanelizationSummary {
-  PanelizationSummary({
-      bool? containsEpubBubbles, 
-      bool? containsImageBubbles,}){
-    _containsEpubBubbles = containsEpubBubbles;
-    _containsImageBubbles = containsImageBubbles;
-}
+  bool? containsEpubBubbles;
+  bool? containsImageBubbles;
 
-  PanelizationSummary.fromJson(dynamic json) {
-    _containsEpubBubbles = json['containsEpubBubbles'];
-    _containsImageBubbles = json['containsImageBubbles'];
+  PanelizationSummary({this.containsEpubBubbles, this.containsImageBubbles});
+
+  PanelizationSummary.fromJson(Map<String, dynamic> json) {
+    containsEpubBubbles = json['containsEpubBubbles'];
+    containsImageBubbles = json['containsImageBubbles'];
   }
-  bool? _containsEpubBubbles;
-  bool? _containsImageBubbles;
-
-  bool? get containsEpubBubbles => _containsEpubBubbles;
-  bool? get containsImageBubbles => _containsImageBubbles;
 
   Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['containsEpubBubbles'] = _containsEpubBubbles;
-    map['containsImageBubbles'] = _containsImageBubbles;
-    return map;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['containsEpubBubbles'] = containsEpubBubbles;
+    data['containsImageBubbles'] = containsImageBubbles;
+    return data;
   }
-
 }

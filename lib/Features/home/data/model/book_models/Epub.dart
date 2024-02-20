@@ -1,26 +1,18 @@
-import 'dart:convert';
-
-/// isAvailable : false
-
-Epub epubFromJson(String str) => Epub.fromJson(json.decode(str));
-String epubToJson(Epub data) => json.encode(data.toJson());
 class Epub {
-  Epub({
-      bool? isAvailable,}){
-    _isAvailable = isAvailable;
-}
+  bool? isAvailable;
+  String? acsTokenLink;
 
-  Epub.fromJson(dynamic json) {
-    _isAvailable = json['isAvailable'];
+  Epub({required this.isAvailable, required this.acsTokenLink});
+
+  Epub.fromJson(Map<String, dynamic> json) {
+    isAvailable = json['isAvailable'];
+    acsTokenLink = json['acsTokenLink'];
   }
-  bool? _isAvailable;
-
-  bool? get isAvailable => _isAvailable;
 
   Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['isAvailable'] = _isAvailable;
-    return map;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['isAvailable'] = isAvailable;
+    data['acsTokenLink'] = acsTokenLink;
+    return data;
   }
-
 }

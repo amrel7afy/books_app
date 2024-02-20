@@ -1,12 +1,16 @@
-import 'package:books_app/Features/home/data/home_repos/home_repo_impl.dart';
+
+import 'dart:developer';
+
 import 'package:books_app/Features/home/presentation/view_model/cubits/fetch_featured_books_cubit/fetch_featured_books_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
-  final HomeRepoImpl homeRepoImpl;
+import '../../../../data/home_repos/home_repo.dart';
 
-  FetchFeaturedBooksCubit(this.homeRepoImpl)
+class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
+  final HomeRepo homeRepo;
+
+  FetchFeaturedBooksCubit(this.homeRepo)
       : super(FetchFeaturedBooksInitial());
 
   static FetchFeaturedBooksCubit getCubit(BuildContext context) =>
@@ -14,8 +18,9 @@ class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState> {
 
   Future<void> fetchFeaturedBooks() async {
     emit(FetchFeaturedBooksLoading());
-    var result = await homeRepoImpl.fetchFeaturedBooks();
+    var result = await homeRepo.fetchFeaturedBooks();
     result.fold((failure) {
+      log(failure.errorMessage);
       emit(FetchFeaturedBooksFailure(failure.errorMessage));
     }, (featuredBooks) {
       emit(FetchFeaturedBooksSuccess(featuredBooks));

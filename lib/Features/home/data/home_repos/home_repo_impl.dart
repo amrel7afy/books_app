@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:books_app/Features/home/data/home_repos/home_repo.dart';
-import 'package:books_app/Features/home/data/model/Book.dart';
-import 'package:books_app/core/api_service.dart';
+import 'package:books_app/Features/home/data/model/book.dart';
+
+import 'package:books_app/core/utils/api_service.dart';
 import 'package:books_app/core/errors/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -13,12 +16,12 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<Book>>> fetchNewestBooks() async {
     try {
-      var data = await apiServices.getData(
+      var data = await apiServices.get(
           endPoint:
-              'Filtering=free-ebooks&q=subject:programming&Sorting=newest');
+              'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=newest');
       List<Book> books = [];
       for (var book in data['items']) {
-        books.add(book);
+        books.add(Book.fromJson(book));
       }
       return right(books);
     } catch (e) {
@@ -36,12 +39,13 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<Book>>> fetchFeaturedBooks() async{
     try {
-      var data = await apiServices.getData(
+      var data = await apiServices.get(
           endPoint:
-          'Filtering=free-ebooks&q=subject:programming');
+          'volumes?Filtering=free-ebooks&q=subject:programming');
+      log('hello');
       List<Book> books = [];
       for (var book in data['items']) {
-        books.add(book);
+        books.add(Book.fromJson(book));
       }
       return right(books);
     } catch (e) {

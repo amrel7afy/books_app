@@ -40,7 +40,9 @@ dependencies:
   dartz:
   dio:
   flutter_bloc:
+  get_it:
 
+  bloc: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

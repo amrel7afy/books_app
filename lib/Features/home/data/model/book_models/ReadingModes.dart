@@ -1,33 +1,18 @@
-import 'dart:convert';
-
-/// text : true
-/// image : true
-
-ReadingModes readingModesFromJson(String str) => ReadingModes.fromJson(json.decode(str));
-String readingModesToJson(ReadingModes data) => json.encode(data.toJson());
 class ReadingModes {
-  ReadingModes({
-      bool? text, 
-      bool? image,}){
-    _text = text;
-    _image = image;
-}
+  bool? text;
+  bool? image;
 
-  ReadingModes.fromJson(dynamic json) {
-    _text = json['text'];
-    _image = json['image'];
+  ReadingModes({this.text, this.image});
+
+  ReadingModes.fromJson(Map<String, dynamic> json) {
+    text = json['text'];
+    image = json['image'];
   }
-  bool? _text;
-  bool? _image;
-
-  bool? get text => _text;
-  bool? get image => _image;
 
   Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['text'] = _text;
-    map['image'] = _image;
-    return map;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['text'] = text;
+    data['image'] = image;
+    return data;
   }
-
 }
