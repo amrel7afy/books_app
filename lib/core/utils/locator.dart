@@ -6,6 +6,10 @@ GetIt locator = GetIt.instance;
 
 
 void setupLocator() {
-  locator.registerLazySingleton<ApiServices>(() => ApiServices(Dio()));
+  locator.registerLazySingleton<ApiServices>(() => ApiServices(Dio(
+    BaseOptions(
+      connectTimeout: const Duration (milliseconds: 200)
+    )
+  )));
   locator.registerLazySingleton<HomeRepoImpl>(() => HomeRepoImpl(locator<ApiServices>()));
 }
