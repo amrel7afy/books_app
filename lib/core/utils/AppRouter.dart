@@ -10,6 +10,8 @@ import 'package:books_app/core/utils/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../Features/home/presentation/view_model/cubits/fetch_relevant_books_cubit/fetch_relevant_books_cubit.dart';
+
 class AppRouter {
   static const String splashView = '/';
   static const String homeView = '/homeView';
@@ -33,7 +35,11 @@ class AppRouter {
                   ),
                 ], child: const HomeView()));
       case bookDetailsView:
-        return MaterialPageRoute(builder: (context) => const BookDetailsView());
+        return MaterialPageRoute(builder: (context) => BlocProvider(
+          create: (context) =>FetchRelevantBooksCubit(locator<HomeRepoImpl>()),
+             child: const BookDetailsView()
+
+        ));
       case searchView:
         return MaterialPageRoute(builder: (context) => const SearchView());
     }

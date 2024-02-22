@@ -18,7 +18,7 @@ class BookImage extends StatelessWidget {
      return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: AspectRatio(
-        aspectRatio: 3.5/6,
+        aspectRatio: 3.8/6,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(cardBorderRadius),
           child: CachedNetworkImage(

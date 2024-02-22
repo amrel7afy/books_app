@@ -4,7 +4,6 @@ import 'IndustryIdentifiers.dart';
 import 'PanelizationSummary.dart';
 import 'ReadingModes.dart';
 
-
 class VolumeInfo {
   final String? title;
   final List<String>? authors;
