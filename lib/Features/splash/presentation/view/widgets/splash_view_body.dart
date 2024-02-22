@@ -23,7 +23,7 @@ with SingleTickerProviderStateMixin
   @override
   void initState() {
     initAnimation();
-    navigateToWithDelayed(context,AppRouter.homeView);
+    pushReplacementWithDelayed(context,AppRouter.homeView);
     super.initState();
   }
 

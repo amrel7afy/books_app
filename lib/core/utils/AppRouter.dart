@@ -1,4 +1,5 @@
 import 'package:books_app/Features/home/data/home_repos/home_repo_impl.dart';
+import 'package:books_app/Features/home/data/model/book.dart';
 import 'package:books_app/Features/home/presentation/view/book_details_view.dart';
 import 'package:books_app/Features/home/presentation/view/home_view.dart';
 import 'package:books_app/Features/home/presentation/view_model/cubits/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
@@ -35,9 +36,10 @@ class AppRouter {
                   ),
                 ], child: const HomeView()));
       case bookDetailsView:
+        Book book=settings.arguments as Book;
         return MaterialPageRoute(builder: (context) => BlocProvider(
           create: (context) =>FetchRelevantBooksCubit(locator<HomeRepoImpl>()),
-             child: const BookDetailsView()
+             child:  BookDetailsView(book: book,)
 
         ));
       case searchView:

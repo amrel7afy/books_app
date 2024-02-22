@@ -1,3 +1,4 @@
+import 'package:books_app/Features/home/data/model/book.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/book_details_view_widgets/book_actions.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/methods.dart';
@@ -9,40 +10,48 @@ import '../home_view_widgets/book_image.dart';
 import '../home_view_widgets/book_rating.dart';
 
 class BookDetailsSection extends StatelessWidget {
-  const BookDetailsSection({super.key});
+  final Book book;
+  const BookDetailsSection({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kRightBookDetailsViewPadding),
+      padding:
+          const EdgeInsets.symmetric(horizontal: kRightBookDetailsViewPadding),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: getWidth(context) * 0.22),
-            child: const BookImage(imageUrl: 'https://th.bing.com/th/id/OIP.Wr1eKs2VHyEN_R7FtGI_eAHaE8?rs=1&pid=ImgDetMain',
+            padding: EdgeInsets.symmetric(horizontal: getWidth(context) * 0.18),
+            child:  BookImage(
+              imageUrl:book.volumeInfo?.imageLinks?.thumbnail??'no image'
             ),
           ),
           const VerticalSpacer(20),
-          const Text(
-            'The Jungle Book',
+           Text(
+            book.volumeInfo!.title!,
             style: MyTextStyles.mediumTextStyle30,
+            textAlign: TextAlign.center,
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
           ),
+          const VerticalSpacer(6),
           Opacity(
             opacity: 0.7,
             child: Text(
-              'Robert Sedgier',
+              book.volumeInfo!.authors![0],
               style: MyTextStyles.mediumTextStyle16.copyWith(
                 fontStyle: FontStyle.italic,
               ),
             ),
           ),
           const VerticalSpacer(20),
-          const BookRating(
-            count: 3884,
-            rating: 4,
-            mainAxisAlignment: MainAxisAlignment.center,
+           BookRating(
+             mainAxisAlignment: MainAxisAlignment.center,
+            rating: book.volumeInfo?.averageRating ?? 0,
+            count: book.volumeInfo?.ratingsCount??0,
           ),
-          const VerticalSpacer(20),
+          const VerticalSpacer(40),
           const BookActions(),
         ],
       ),

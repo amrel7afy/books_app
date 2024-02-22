@@ -3,24 +3,26 @@ import 'package:books_app/Features/home/presentation/view/widgets/book_details_v
 import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../data/model/book.dart';
 import 'similar_books_section.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
 
+  final Book book;
+  const BookDetailsViewBody({super.key, required this.book});
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return  CustomScrollView(
       slivers: [
         SliverFillRemaining(
           hasScrollBody: false,
           child: Column(
             children: [
-              CustomBookDetailsAppBar(),
-              VerticalSpacer(10),
-              BookDetailsSection(),
-              Expanded(child: VerticalSpacer(30)),
-              SimilarBooksSection()
+              const CustomBookDetailsAppBar(),
+              const VerticalSpacer(20),
+              BookDetailsSection(book: book,),
+              const Expanded(child: VerticalSpacer(30)),
+              const SimilarBooksSection()
             ],
           ),
         )

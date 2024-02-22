@@ -17,13 +17,13 @@ double getWidth(context) {
   return MediaQuery.of(context).size.width;
 }
 
-void navigateToWithDelayed(context,widgetId) {
+void pushReplacementWithDelayed(context,widgetId) {
   Future.delayed( kNavigationDurationVal).then((value) {
-    Navigator.pushNamed(context, widgetId);
+    Navigator.pushReplacementNamed(context, widgetId);
   });
 }
-void navigateTo(context,widgetId) {
-    Navigator.pushNamed(context, widgetId);
+void navigateTo(context,widgetId,{arguments}) {
+    Navigator.pushNamed(context, widgetId,arguments: arguments);
 
 }
 

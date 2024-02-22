@@ -14,6 +14,7 @@ class BookActions extends StatelessWidget {
       children: [
         SizedBox(
           width: getWidth(context)*0.4,
+          height: 45,
           child: CustomButton(
             textStyle: MyTextStyles.boldTextStyle15,
             backGroundColor: MyColors.kPrimaryColor,
@@ -24,6 +25,7 @@ class BookActions extends StatelessWidget {
         ),
         SizedBox(
           width: getWidth(context)*0.4,
+          height: 45,
           child: CustomButton(
             textStyle: MyTextStyles.boldTextStyle15.copyWith(color: MyColors.kPrimaryColor),
             backGroundColor: const Color(0xffe87a64),

@@ -17,13 +17,13 @@ class NewestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        navigateTo( context,AppRouter.bookDetailsView );
+        navigateTo( context,AppRouter.bookDetailsView, arguments: book);
       },
       child: SizedBox(
         height: 120,
         child: Row(
           children: [
-            BookImage(imageUrl: book.volumeInfo!.imageLinks!.thumbnail!)            ,
+            BookImage(imageUrl: book.volumeInfo?.imageLinks?.thumbnail??'no Image')            ,
             const HorizontalSpacer(30),
             Expanded(
               child: Column(
@@ -40,7 +40,11 @@ class NewestCard extends StatelessWidget {
                             .copyWith(fontFamily: kGTSectraFine),
                       )),
                   const VerticalSpacer(3),
-                   Text(book.volumeInfo!.authors![0],style: MyTextStyles.mediumTextStyle14,),
+                   Text(book.volumeInfo!.authors![0],
+                     maxLines: 1,
+                     overflow: TextOverflow.fade,
+
+                     style: MyTextStyles.mediumTextStyle14,),
                     Row(
                     children: [
                       const Text('Free',style: MyTextStyles.boldTextStyle18,),

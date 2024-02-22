@@ -1,10 +1,12 @@
+import 'package:books_app/Features/home/data/model/book.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/book_details_view_widgets/book_details_view_body.dart';
 import 'package:books_app/Features/home/presentation/view_model/cubits/fetch_relevant_books_cubit/fetch_relevant_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookDetailsView extends StatefulWidget {
-  const BookDetailsView({super.key});
+  final Book book;
+  const BookDetailsView({super.key, required this.book});
 
   @override
   State<BookDetailsView> createState() => _BookDetailsViewState();
@@ -18,9 +20,9 @@ class _BookDetailsViewState extends State<BookDetailsView> {
   }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: SafeArea(
-        child: BookDetailsViewBody(),
+        child: BookDetailsViewBody(book: widget.book,),
       ),
     );
   }

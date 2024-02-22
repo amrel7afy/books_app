@@ -20,9 +20,9 @@ class SimilarBooksSection extends StatelessWidget {
             style: MyTextStyles.boldTextStyle16,
           ),
         ),
-        VerticalSpacer(10),
+        VerticalSpacer(15),
         SimilarBooksListView(),
-        VerticalSpacer(30)
+        VerticalSpacer(20)
       ],
     );
   }
