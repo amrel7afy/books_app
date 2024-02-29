@@ -51,8 +51,8 @@ class BookDetailsSection extends StatelessWidget {
             rating: book.volumeInfo?.averageRating ?? 0,
             count: book.volumeInfo?.ratingsCount??0,
           ),
-          const VerticalSpacer(40),
-          const BookActions(),
+          const VerticalSpacer(30),
+           BookActions(book: book,),
         ],
       ),
     );

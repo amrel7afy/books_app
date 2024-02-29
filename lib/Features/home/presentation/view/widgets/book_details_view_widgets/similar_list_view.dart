@@ -37,8 +37,11 @@ Padding buildSuccessBody(context,FetchRelevantBooksSuccess state){
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context, index) {
-          return  BookImage(
-            imageUrl: state.relevantBooks[index].volumeInfo?.imageLinks?.thumbnail??'no image'
+          return  Padding(
+            padding: const EdgeInsets.only(right: kRightHomeViewPadding),
+            child: BookImage(
+              imageUrl: state.relevantBooks[index].volumeInfo?.imageLinks?.thumbnail??'no image'
+            ),
           );
         }, itemCount: state.relevantBooks.length,),
     ),

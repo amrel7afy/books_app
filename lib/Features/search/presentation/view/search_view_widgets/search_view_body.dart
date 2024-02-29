@@ -36,7 +36,6 @@ class SearchViewBody extends StatelessWidget {
             ),
           ),
           SearchResultsListView()
-
         ],
       ),
     );
@@ -50,7 +49,7 @@ class SearchResultsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(childCount: 5, (context, index) {
-        return  Padding(
+        return Padding(
           padding: const EdgeInsets.only(
               right: kRightHomeViewPadding, bottom: 10, top: 10),
           child: Container(),
