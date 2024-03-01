@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:books_app/Features/home/data/model/book.dart';
+import 'package:books_app/core/model/book.dart';
 import 'package:books_app/core/utils/constants/methods.dart';
 import 'package:books_app/core/utils/constants/my_colors.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
@@ -22,10 +22,10 @@ class BookActions extends StatelessWidget {
           width: getWidth(context) * 0.4,
           height: 45,
           child: CustomButton(
-            textStyle: MyTextStyles.boldTextStyle15,
+            textStyle: MyTextStyles.boldTextStyle16,
             backGroundColor: MyColors.kPrimaryColor,
             onPressed: () {},
-            text: 'free',
+            text: 'Free',
             borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(13), topLeft: Radius.circular(13)),
           ),

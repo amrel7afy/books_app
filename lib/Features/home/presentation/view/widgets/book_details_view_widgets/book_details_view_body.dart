@@ -3,7 +3,7 @@ import 'package:books_app/Features/home/presentation/view/widgets/book_details_v
 import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../data/model/book.dart';
+import '../../../../../../core/model/book.dart';
 import 'similar_books_section.dart';
 
 class BookDetailsViewBody extends StatelessWidget {

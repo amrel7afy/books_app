@@ -1,5 +1,7 @@
 import 'package:books_app/Features/home/data/home_repos/home_repo_impl.dart';
-import 'package:books_app/Features/home/data/model/book.dart';
+import 'package:books_app/Features/search/data/search_repo/search_repo_impl.dart';
+import 'package:books_app/Features/search/presentation/view_model/cubits/search_cubit/search_cubit.dart';
+import 'package:books_app/core/model/book.dart';
 import 'package:books_app/Features/home/presentation/view/book_details_view.dart';
 import 'package:books_app/Features/home/presentation/view/home_view.dart';
 import 'package:books_app/Features/home/presentation/view_model/cubits/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
@@ -28,22 +30,32 @@ class AppRouter {
             builder: (context) => MultiBlocProvider(providers: [
                   BlocProvider(
                     create: (context) =>
-                        FetchFeaturedBooksCubit(locator<HomeRepoImpl>())..fetchFeaturedBooks(),
+                        FetchFeaturedBooksCubit(locator<HomeRepoImpl>())
+                          ..fetchFeaturedBooks(),
                   ),
                   BlocProvider(
                     create: (context) =>
-                        FetchNewestBooksCubit(locator<HomeRepoImpl>())..fetchNewestBooks(),
+                        FetchNewestBooksCubit(locator<HomeRepoImpl>())
+                          ..fetchNewestBooks(),
                   ),
                 ], child: const HomeView()));
       case bookDetailsView:
-        Book book=settings.arguments as Book;
-        return MaterialPageRoute(builder: (context) => BlocProvider(
-          create: (context) =>FetchRelevantBooksCubit(locator<HomeRepoImpl>()),
-             child:  BookDetailsView(book: book,)
-
-        ));
+        Book book = settings.arguments as Book;
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                create: (context) =>
+                    FetchRelevantBooksCubit(locator<HomeRepoImpl>()),
+                child: BookDetailsView(
+                  book: book,
+                )));
       case searchView:
-        return MaterialPageRoute(builder: (context) => const SearchView());
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                create: (context) => SearchCubit(
+                      locator<SearchRepoImpl>(),
+                    ),
+            child: const SearchView(),
+            ));
     }
     return null;
   }

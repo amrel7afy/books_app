@@ -1,4 +1,4 @@
-import 'package:books_app/Features/home/data/model/book.dart';
+import 'package:books_app/core/model/book.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/book_details_view_widgets/book_actions.dart';
 import 'package:books_app/core/utils/constants/constants.dart';
 import 'package:books_app/core/utils/constants/methods.dart';
@@ -11,6 +11,7 @@ import '../home_view_widgets/book_rating.dart';
 
 class BookDetailsSection extends StatelessWidget {
   final Book book;
+
   const BookDetailsSection({super.key, required this.book});
 
   @override
@@ -23,12 +24,12 @@ class BookDetailsSection extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: getWidth(context) * 0.18),
-            child:  BookImage(
-              imageUrl:book.volumeInfo?.imageLinks?.thumbnail??'no image'
+            child: BookImage(
+              imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? 'no image',
             ),
           ),
           const VerticalSpacer(20),
-           Text(
+          Text(
             book.volumeInfo!.title!,
             style: MyTextStyles.mediumTextStyle30,
             textAlign: TextAlign.center,
@@ -46,13 +47,15 @@ class BookDetailsSection extends StatelessWidget {
             ),
           ),
           const VerticalSpacer(20),
-           BookRating(
-             mainAxisAlignment: MainAxisAlignment.center,
+          BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
             rating: book.volumeInfo?.averageRating ?? 0,
-            count: book.volumeInfo?.ratingsCount??0,
+            count: book.volumeInfo?.ratingsCount ?? 0,
           ),
           const VerticalSpacer(30),
-           BookActions(book: book,),
+          BookActions(
+            book: book,
+          ),
         ],
       ),
     );

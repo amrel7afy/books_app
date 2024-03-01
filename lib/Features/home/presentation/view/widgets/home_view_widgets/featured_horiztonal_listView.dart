@@ -9,7 +9,6 @@ import 'package:books_app/core/utils/constants/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({super.key});
 
@@ -17,37 +16,39 @@ class FeaturedListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FetchFeaturedBooksCubit, FetchFeaturedBooksState>(
       builder: (context, state) {
-        if(state is FetchFeaturedBooksLoading){
+        if (state is FetchFeaturedBooksLoading) {
           return const CustomLoadingIndicator();
-        }
-        else if(state is FetchFeaturedBooksSuccess){
+        } else if (state is FetchFeaturedBooksSuccess) {
           return buildSuccessBody(context, state);
-        }
-       else{
-         return CustomErrorMessage(state: state);
+        } else {
+          return CustomErrorMessage(state: state);
         }
       },
     );
   }
 
-  SizedBox buildSuccessBody(BuildContext context, FetchFeaturedBooksSuccess state) {
+  SizedBox buildSuccessBody(
+      BuildContext context, FetchFeaturedBooksSuccess state) {
     return SizedBox(
-          height: getHeight(context) * 0.34,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (BuildContext context, index) {
-              return  Padding(
-                padding: const EdgeInsets.only(right: kRightHomeViewPadding),
-                child: GestureDetector(
-                  onTap: (){
-                    navigateTo(context, AppRouter.bookDetailsView,arguments:state.featuredBooks[index] );
-                  },
-                  child: BookImage(
-                      imageUrl:state.featuredBooks[index].volumeInfo?.imageLinks?.thumbnail??'no image'
-                  ),
-                ),
-              );
-            }, itemCount: state.featuredBooks.length,),
-        );
+      height: getHeight(context) * 0.34,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, index) {
+          return Padding(
+            padding: const EdgeInsets.only(right: kRightHomeViewPadding),
+            child: BookImage(
+              imageUrl: state
+                      .featuredBooks[index].volumeInfo?.imageLinks?.thumbnail ??
+                  'no image',
+              onTap: () {
+                navigateTo(context, AppRouter.bookDetailsView,
+                    arguments: state.featuredBooks[index]);
+              },
+            ),
+          );
+        },
+        itemCount: state.featuredBooks.length,
+      ),
+    );
   }
 }

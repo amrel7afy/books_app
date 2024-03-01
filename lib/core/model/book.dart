@@ -1,7 +1,7 @@
-import 'package:books_app/Features/home/data/model/book_models/AccessInfo.dart';
-import 'package:books_app/Features/home/data/model/book_models/volume_info.dart';
 
-import 'book_models/SaleInfo.dart';
+import 'package:books_app/core/model/book_models/AccessInfo.dart';
+import 'package:books_app/core/model/book_models/SaleInfo.dart';
+import 'package:books_app/core/model/book_models/volume_info.dart';
 
 class Book {
   String? kind;

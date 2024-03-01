@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:books_app/Features/home/data/home_repos/home_repo.dart';
-import 'package:books_app/Features/home/data/model/book.dart';
+import 'package:books_app/core/model/book.dart';
 
 import 'package:books_app/core/utils/api_service.dart';
 import 'package:books_app/core/errors/failure.dart';
@@ -64,11 +64,11 @@ class HomeRepoImpl implements HomeRepo {
 
 
   @override
-  Future<Either<Failure, List<Book>>> fetchRelevantBooks() async{
+  Future<Either<Failure, List<Book>>> fetchRelevantBooks({required String bookName}) async{
     try {
       var data = await apiServices.get(
           endPoint:
-          'volumes?Filtering=free-ebooks&q=flutter&Sorting=relevance');
+          'volumes?Filtering=free-ebooks&q=$bookName&Sorting=relevance');
 
       List<Book> books = [];
       for (var book in data['items']) {

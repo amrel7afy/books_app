@@ -15,9 +15,9 @@ class FetchRelevantBooksCubit extends Cubit<FetchRelevantBooksState> {
   static FetchRelevantBooksCubit getCubit(BuildContext context) =>
       BlocProvider.of(context);
 
-  Future<void> fetchRelevantBooks() async {
+  Future<void> fetchRelevantBooks({required String bookName}) async {
     emit(FetchRelevantBooksLoading());
-    var result = await homeRepo.fetchRelevantBooks();
+    var result = await homeRepo.fetchRelevantBooks(bookName: bookName);
     result.fold((failure) {
       emit(FetchRelevantBooksFailure(failure.errorMessage));
     }, (featuredBooks) {

@@ -6,7 +6,7 @@ import 'package:books_app/core/utils/constants/widgets/vertical_and_horizontal_s
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/constants/constants.dart';
-import '../../../../data/model/book.dart';
+import '../../../../../../core/model/book.dart';
 import 'book_rating.dart';
 
 class NewestCard extends StatelessWidget {
@@ -23,7 +23,10 @@ class NewestCard extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            BookImage(imageUrl: book.volumeInfo?.imageLinks?.thumbnail??'no Image')            ,
+            BookImage(imageUrl: book.volumeInfo?.imageLinks?.thumbnail??'no Image', onTap: () {
+
+              navigateTo(context, AppRouter.bookDetailsView,arguments:book);
+            },)            ,
             const HorizontalSpacer(30),
             Expanded(
               child: Column(
@@ -40,7 +43,7 @@ class NewestCard extends StatelessWidget {
                             .copyWith(fontFamily: kGTSectraFine),
                       )),
                   const VerticalSpacer(3),
-                   Text(book.volumeInfo!.authors![0],
+                   Text(book.volumeInfo!.authors!.isNotEmpty?book.volumeInfo!.authors![0]:'No Author',
                      maxLines: 1,
                      overflow: TextOverflow.fade,
 

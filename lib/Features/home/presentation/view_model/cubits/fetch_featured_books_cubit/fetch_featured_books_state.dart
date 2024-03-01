@@ -1,5 +1,5 @@
 
-import 'package:books_app/Features/home/data/model/book.dart';
+import 'package:books_app/core/model/book.dart';
 
 abstract class FetchFeaturedBooksState {}
 
