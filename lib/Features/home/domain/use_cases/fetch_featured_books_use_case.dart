@@ -12,9 +12,8 @@ class FetchFeaturedBooksUseCase implements UseCase <List<BookEntity>>{
   FetchFeaturedBooksUseCase(this.homeRepo);
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call() {
-    // TODO: implement call
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookEntity>>> call() async{
+  return await homeRepo.fetchFeaturedBooks();
   }
 
 
@@ -25,24 +24,7 @@ class FetchFeaturedBooksUseCase implements UseCase <List<BookEntity>>{
 
 }
 
-/*
 
-class FetchFeaturedBooksUseCase implements UseCase <List<BookEntity>,String>{
-  final HomeRepo homeRepo;
-
-  FetchFeaturedBooksUseCase(this.homeRepo);
-
-  @override
-  Future<Either<Failure, List<BookEntity>>> call(String param) {
-    // TODO: implement call
-    throw UnimplementedError();
-  }
-
-
-
-
-}
-*/
 
 
 

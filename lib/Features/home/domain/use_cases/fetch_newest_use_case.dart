@@ -1,6 +1,6 @@
 import 'package:books_app/Features/home/domain/entities/book_entity.dart';
 import 'package:books_app/Features/home/domain/repos/home_repo.dart';
-import 'package:books_app/cor e/utils/constants/use_cases/no_params_use_case.dart';
+import 'package:books_app/core/utils/constants/use_cases/no_params_use_case.dart';
 import 'package:dartz/dartz.dart';
 
 class FetchNewestUseCase implements UseCase<List<BookEntity>>{
