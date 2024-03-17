@@ -4,9 +4,12 @@ import 'package:books_app/core/utils/constants/use_cases/no_params_use_case.dart
 import 'package:dartz/dartz.dart';
 
 class FetchNewestUseCase implements UseCase<List<BookEntity>>{
+  final HomeRepo homeRepo;
+
+  FetchNewestUseCase(this.homeRepo);
+
   @override
-  Future<Either<Failure, List<BookEntity>>> call() {
-    // TODO: implement call
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookEntity>>> call() async{
+    return await homeRepo.fetchNewestBooks();
   }
 }
