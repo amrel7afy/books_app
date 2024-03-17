@@ -1,6 +1,9 @@
 import 'package:books_app/Features/home/domain/entities/book_entity.dart';
 import 'package:books_app/core/utils/constants/api_service.dart';
+import 'package:books_app/core/utils/constants/constants.dart';
 
+
+import '../../../../core/utils/constants/methods.dart';
 import '../../../../core/utils/constants/model/book.dart';
 
 abstract class HomeRemoteDataSource{
@@ -16,21 +19,26 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource{
   Future<List<BookEntity>> fetchFeaturedBooks()async {
     var data=await _apiServices.get(endPoint: 'volumes?Filtering=free-ebooks&q=History&Sorting=relevance');
     List<BookEntity> books = getBookList(data);
+    await saveData(books,kFeaturedBooksBox);
     return books;
   }
 
-  List<BookEntity> getBookList(Map<String, dynamic> data) {
-     List<BookEntity>books=[];
-    for (var bookMap in data['items']){
-      books.add(Book.fromJson(bookMap));
-    }
-    return books;
-  }
+
+
 
   @override
   Future<List<BookEntity>> fetchNewestBooks() async{
-    var data=await _apiServices.get(endPoint: 'volumes?Filtering=free-ebooks&q=History&Sorting=relevance');
+    var data=await _apiServices.get(endPoint: 'volumes?Filtering=free-ebooks&q=Comedy&Sorting=relevance');
     List<BookEntity> books = getBookList(data);
+    await saveData(books,kNewestBooksBox);
     return books;
   }
+
+ List<BookEntity> getBookList(Map<String, dynamic> data) {
+   List<BookEntity>books=[];
+   for (var bookMap in data['items']){
+     books.add(Book.fromJson(bookMap));
+   }
+   return books;
+ }
 }

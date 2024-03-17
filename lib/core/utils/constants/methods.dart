@@ -1,4 +1,5 @@
 import'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'constants.dart';
 String removeSubString(String string, String subString) {
   String escapedSubstring = RegExp.escape(subString);
@@ -25,6 +26,11 @@ void navigateToWithDelayed(context,widgetId) {
 void navigateTo(context,widgetId) {
     Navigator.pushNamed(context, widgetId);
 
+}
+
+Future<void> saveData( data,boxName) async {
+  var box= Hive.box(boxName);
+  await box.addAll(data);
 }
 
 

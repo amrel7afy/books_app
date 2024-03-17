@@ -16,5 +16,6 @@ const double cardBorderRadius=10.0;
 
 const kGTSectraFine='GT Sectra Fine';
 const kFeaturedBooksBox='featuredBooks';
+const kNewestBooksBox='newestBooks';
 
 
