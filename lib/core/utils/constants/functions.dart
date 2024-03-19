@@ -28,8 +28,8 @@ void navigateTo(context,widgetId) {
 
 }
 
-Future<void> saveData( data,boxName) async {
-  var box= Hive.box(boxName);
+Future<void> saveData<Type>( data,boxName) async {
+  var box= Hive.box<Type>(boxName);
   await box.addAll(data);
 }
 

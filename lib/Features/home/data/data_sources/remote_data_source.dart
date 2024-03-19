@@ -19,7 +19,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource{
   Future<List<BookEntity>> fetchFeaturedBooks()async {
     var data=await _apiServices.get(endPoint: 'volumes?Filtering=free-ebooks&q=History&Sorting=relevance');
     List<BookEntity> books = getBookList(data);
-    await saveData(books,kFeaturedBooksBox);
+    await saveData<BookEntity>(books,kFeaturedBooksBox);
     return books;
   }
 

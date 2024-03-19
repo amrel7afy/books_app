@@ -1,5 +1,7 @@
-part of 'fetch_featured_books_cubit.dart';
 
+
+
+import '../../../domain/entities/book_entity.dart';
 
 abstract class FetchFeaturedBooksState {}
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/book_entity.dart';
@@ -23,6 +25,7 @@ class FetchNewestBooksCubit extends Cubit<FetchNewestBooksState>
 
     results.fold((failure) {
       emit(FetchNewestBooksFailure(failure.errorMessage));
+      log (failure.errorMessage);
     }, (books) {
       emit(FetchNewestBooksSuccess(books));
     });

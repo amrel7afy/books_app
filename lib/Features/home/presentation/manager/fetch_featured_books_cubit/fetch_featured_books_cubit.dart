@@ -1,9 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/entities/book_entity.dart';
 import '../../../domain/use_cases/fetch_featured_books_use_case.dart';
+import 'fetch_featured_books_state.dart';
 
-part 'fetch_featured_books_state.dart';
 
 abstract class FeaturedBooksCubitBase {
   fetchFeaturedBooks();
@@ -24,6 +25,7 @@ class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState>
 
     results.fold((failure) {
       emit(FetchFeaturedBooksFailure(failure.errorMessage));
+      log (failure.errorMessage);
     }, (books) {
       emit(FetchFeaturedBooksSuccess(books));
     });

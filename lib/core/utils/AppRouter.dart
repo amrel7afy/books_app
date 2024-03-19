@@ -26,9 +26,9 @@ class AppRouter {
     return MaterialPageRoute(
     builder: (context) => MultiBlocProvider(providers: [
     BlocProvider(
-    create: (context) => FetchFeaturedBooksCubit(locator<FetchFeaturedBooksUseCase>()),
+    create: (context) => FetchFeaturedBooksCubit(locator<FetchFeaturedBooksUseCase>())..fetchFeaturedBooks(),
     ),
-    BlocProvider(create: (context) => FetchNewestBooksCubit(locator<FetchNewestBooksUseCase>()))
+    BlocProvider(create: (context) => FetchNewestBooksCubit(locator<FetchNewestBooksUseCase>())..fetchNewestBooks())
     ], child: const HomeView()));
     case bookDetailsView:
     return MaterialPageRoute(builder: (context) => const BookDetailsView());

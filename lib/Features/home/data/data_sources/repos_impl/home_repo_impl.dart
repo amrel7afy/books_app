@@ -28,7 +28,7 @@ class HomeRepoImpl implements HomeRepo {
       if(e is DioException){
         return left(ServerFailure.fromDioException(e));
       }
-      return left(ServerFailure('Not handled error!'));
+      return left(ServerFailure(e.toString()));
     }
   }
 
