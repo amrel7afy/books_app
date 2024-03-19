@@ -11,7 +11,7 @@ fetchNewestBooks();
 
 class FetchNewestBooksCubit extends Cubit<FetchNewestBooksState>
     implements NewestBooksCubitBase {
-  final FetchNewestUseCase newestBooksUseCase;
+  final FetchNewestBooksUseCase newestBooksUseCase;
 
   FetchNewestBooksCubit(this.newestBooksUseCase)
       : super(FetchNewestBooksInitial());
