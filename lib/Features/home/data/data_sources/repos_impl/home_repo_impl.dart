@@ -1,10 +1,10 @@
 import 'package:books_app/Features/home/data/data_sources/local_data_source.dart';
 import 'package:books_app/Features/home/data/data_sources/remote_data_source.dart';
 import 'package:books_app/Features/home/domain/entities/book_entity.dart';
-import 'package:books_app/core/utils/constants/constants.dart';
+import 'package:books_app/core/utils/errors/failure.dart';
 
 import 'package:dartz/dartz.dart';
-import 'package:hive/hive.dart';
+import 'package:dio/dio.dart';
 
 import '../../../domain/repos/home_repo.dart';
 
@@ -25,7 +25,10 @@ class HomeRepoImpl implements HomeRepo {
       var remoteBooks = await homeRemoteDataSource.fetchFeaturedBooks();
       return right(remoteBooks);
     } catch (e) {
-      return left(Failure());
+      if(e is DioException){
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure('Not handled error!'));
     }
   }
 
@@ -40,7 +43,10 @@ class HomeRepoImpl implements HomeRepo {
         return right(remoteBooks);
       }
     } catch (e) {
-      return left(Failure());
+      if(e is DioException){
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure('Not handled error!'));
     }
   }
 }

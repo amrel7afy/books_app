@@ -1,4 +1,4 @@
-import 'package:books_app/core/utils/constants/methods.dart';
+import 'package:books_app/core/utils/constants/functions.dart';
 import 'package:books_app/core/utils/constants/my_colors.dart';
 import 'package:books_app/core/utils/constants/my_text_styles.dart';
 import 'package:books_app/core/utils/constants/widgets/custom_button.dart';

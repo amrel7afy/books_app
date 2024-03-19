@@ -5,7 +5,7 @@ import 'package:books_app/core/utils/constants/my_assets.dart';
 import 'package:flutter/material.dart';
 
 
-import '../../../../../core/utils/constants/methods.dart';
+import '../../../../../core/utils/constants/functions.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
