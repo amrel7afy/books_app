@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/utils/constants/widgets/vertical_and_horizontal_space.dart';
 
+import 'featured_list_view_bloc_builder.dart';
 import 'home_view_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -46,25 +47,3 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class FeaturedListViewBlocBuilder extends StatelessWidget {
-  const FeaturedListViewBlocBuilder({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<FetchFeaturedBooksCubit,FetchFeaturedBooksState>(
-      builder: (context,state) {
-        if(state is FetchFeaturedBooksSuccess){
-        return const FeaturedListView();
-      }
-        else if (state is FetchFeaturedBooksFailure){
-          return CustomErrorMessage(errorMessage: state.error,);
-        }
-        else{
-          return const CustomLoadingIndicator();
-        }
-      }
-    );
-  }
-}

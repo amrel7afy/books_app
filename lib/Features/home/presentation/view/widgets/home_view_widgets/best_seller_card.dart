@@ -21,7 +21,7 @@ class BestSellerCard extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
-            const BookImage()
+            const BookImage( bookImg: '',)
             ,
             const HorizontalSpacer(30),
             Expanded(

@@ -1,5 +1,6 @@
-import 'package:books_app/core/utils/constants/methods.dart';
 import 'package:flutter/material.dart';
+
+import '../functions.dart';
 
 class MyAnimatedButton extends StatefulWidget {
   final String text;

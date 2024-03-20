@@ -7,7 +7,7 @@ import 'fetch_featured_books_state.dart';
 
 
 abstract class FeaturedBooksCubitBase {
-  fetchFeaturedBooks();
+  fetchFeaturedBooks({int pageNumber = 0});
 // Future<Either<Failure,List<BookEntity>>>fetchNewestBooks();
 }
 
@@ -19,9 +19,9 @@ class FetchFeaturedBooksCubit extends Cubit<FetchFeaturedBooksState>
       : super(FetchFeaturedBooksInitial());
 
   @override
-  fetchFeaturedBooks() async {
+  fetchFeaturedBooks({int pageNumber = 0}) async {
     emit(FetchFeaturedBooksLoading());
-    var results = await featuredBooksUseCase.call();
+    var results = await featuredBooksUseCase.call(pageNumber);
 
     results.fold((failure) {
       emit(FetchFeaturedBooksFailure(failure.errorMessage));
