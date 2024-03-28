@@ -7,6 +7,7 @@ abstract class FetchFeaturedBooksState {}
 
 class FetchFeaturedBooksInitial extends FetchFeaturedBooksState {}
 class FetchFeaturedBooksLoading extends FetchFeaturedBooksState {}
+class FetchFeaturedBooksPaginationLoading extends FetchFeaturedBooksState {}
 class FetchFeaturedBooksSuccess extends FetchFeaturedBooksState {
   final List<BookEntity>books;
 

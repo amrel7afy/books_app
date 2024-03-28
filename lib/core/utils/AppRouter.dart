@@ -20,20 +20,25 @@ class AppRouter {
 
   Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-    case splashView:
-    return MaterialPageRoute(builder: (context) => const SplashView());
-    case homeView:
-    return MaterialPageRoute(
-    builder: (context) => MultiBlocProvider(providers: [
-    BlocProvider(
-    create: (context) => FetchFeaturedBooksCubit(locator<FetchFeaturedBooksUseCase>())..fetchFeaturedBooks(),
-    ),
-    BlocProvider(create: (context) => FetchNewestBooksCubit(locator<FetchNewestBooksUseCase>())..fetchNewestBooks())
-    ], child: const HomeView()));
-    case bookDetailsView:
-    return MaterialPageRoute(builder: (context) => const BookDetailsView());
-    case searchView:
-    return MaterialPageRoute(builder: (context) => const SearchView());
+      case splashView:
+        return MaterialPageRoute(builder: (context) => const SplashView());
+      case homeView:
+        return MaterialPageRoute(
+            builder: (context) => MultiBlocProvider(providers: [
+                  BlocProvider(
+                    create: (context) => FetchFeaturedBooksCubit(
+                        locator<FetchFeaturedBooksUseCase>())
+                      ..fetchFeaturedBooks(),
+                  ),
+                  BlocProvider(
+                      create: (context) => FetchNewestBooksCubit(
+                          locator<FetchNewestBooksUseCase>())
+                        ..fetchNewestBooks())
+                ], child: const HomeView()));
+      case bookDetailsView:
+        return MaterialPageRoute(builder: (context) => const BookDetailsView());
+      case searchView:
+        return MaterialPageRoute(builder: (context) => const SearchView());
     }
     return null;
   }

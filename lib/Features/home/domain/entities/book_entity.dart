@@ -16,5 +16,8 @@ class BookEntity extends HiveObject{
   @HiveField(5)
   final num ratingCount;
 
+
   BookEntity({required this.img, required this.title, required this.author, required this.price, required this.rating, required this.ratingCount});
+
+
 }

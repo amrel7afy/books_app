@@ -24,7 +24,7 @@ class Book extends BookEntity {
   }) : super(
             img: volumeInfo!.imageLinks?.smallThumbnail ?? '',
             title: volumeInfo.title!,
-            author: volumeInfo.authors?.first ?? 'no author',
+            author: (volumeInfo.authors?.isEmpty ?? true) ? 'no author' : volumeInfo.authors![0],
             price: 0.00,
             rating: volumeInfo.averageRating??0,
             ratingCount: volumeInfo.ratingsCount??0);

@@ -1,8 +1,9 @@
-import 'dart:developer';
 
+import 'package:books_app/Features/home/presentation/manager/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
 import 'package:books_app/Features/home/presentation/view/widgets/home_view_widgets/book_image.dart';
 import 'package:books_app/core/utils/constants/functions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/book_entity.dart';
 
@@ -17,32 +18,34 @@ class FeaturedListView extends StatefulWidget {
 }
 
 class _FeaturedListViewState extends State<FeaturedListView> {
-  final ScrollController _scrollController = ScrollController();
+  late final ScrollController _scrollController ;
+  var nextPage = 1;
 
+  var isLoading = false;
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_listenToScroll);
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  void _scrollListener() async {
+    var currentPositions = _scrollController.position.pixels;
+    var maxScrollLength = _scrollController.position.maxScrollExtent;
+    if (currentPositions >= 0.7 * maxScrollLength) {
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<FetchFeaturedBooksCubit>(context)
+            .fetchFeaturedBooks(pageNumber: nextPage++);
+        isLoading = false;
+      }
+    }
   }
 
   @override
   void dispose() {
-    _scrollController.removeListener(_listenToScroll);
     _scrollController.dispose();
     super.dispose();
-  }
-
-  void _listenToScroll() {
-    if (_isScrolledTo70Percent()) {
-      log("Scrolled to 70% of the list!");
-    }
-  }
-
-  bool _isScrolledTo70Percent() {
-    final maxScroll = _scrollController.position.maxScrollExtent;
-    final currentScroll = _scrollController.position.pixels;
-    final percent = currentScroll / maxScroll;
-    return percent >= 0.7; // Adjust as needed
   }
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,7 @@ class _FeaturedListViewState extends State<FeaturedListView> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (BuildContext context,index){
           return  BookImage(bookImg:widget.books[index].img);
-        }, itemCount: 10,),
+        }, itemCount:widget.books.length,),
     );
   }
 }
